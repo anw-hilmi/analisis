@@ -197,10 +197,10 @@ export default function InformasiSystem() {
           <div>
             <h5 className="font-bold text-text">Penting: Integritas Data</h5>
             <p className="text-sm text-muted mt-1">
-              Seluruh metrik di atas dihitung menggunakan Natural Language
-              Processing (NLP) untuk menganalisis dokumen pendukung. Pastikan
-              dokumen yang diunggah memiliki kualitas scan yang tinggi untuk
-              menghindari kegagalan deteksi sistem.
+              Seluruh metrik di atas dihitung menggunakan Meachine Learning
+              untuk menganalisis dokumen pendukung. Pastikan dokumen yang
+              diunggah memiliki kualitas scan yang tinggi untuk menghindari
+              kegagalan deteksi sistem.
             </p>
           </div>
         </div>
