@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  /* 🟢 Kaliber Branding - Primary (Hijau) */
+  --color-primary: #0a6e3f;
+  --color-primary-light: #e6f3ed;
+  --color-primary-dark: #074e2c;
+
+  /* 🪙 Kaliber Branding - Secondary (Abu-abu Metalik) */
+  --color-secondary: #7e8b9a;
+  --color-secondary-light: #f1f3f5;
+  --color-secondary-dark: #596470;
+
+  /* 🎨 Accent Colors */
+  --color-accent-purple: #955cbc;
+  --color-accent-purple-light: #f3edf8;
+  --color-accent-red: #f14a7e;
+  --color-accent-red-light: #fde7ee;
+  --color-accent-orange: #fb704b;
+  --color-accent-orange-light: #feebe6;
+  --color-accent-blue: #072764;
+  --color-accent-blue-light: #e7effd;
+  --color-accent-green: #05c46b;
+  --color-accent-green-light: #e9fcef;
+
+  /* 🔲 Login & Dashboard Specific Backgrounds */
+  --color-login-bg: #f8fafc;
+  --color-dashboard-bg: #f1f5f9;
+  --color-card-bg: #ffffff;
+
+  /* 📝 Base Theme Overrides */
+  --color-border: #e2e8f0;
+  --color-bg: #f8fafc;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+
+  /* 🚨 Danger/Error Colors */
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+  --color-danger-dark: #b91c1c;
+
+  /* 🎢 Gradients */
+  --background-image-carousel-gradient: linear-gradient(
+    90deg,
+    #0a6e3f 0%,
+    #7e8b9a 100%
+  );
+}
+
+/* 🌙 DARK MODE OVERRIDES */
+.dark {
+  --color-login-bg: #0f172a;
+  --color-dashboard-bg: #0b0f19;
+  --color-card-bg: #1e293b;
+  --color-border: #334155;
+  --color-text: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-primary-light: #064e3b;
+  --color-bg: #0f172a;
+  --color-secondary: #475569;
+  --color-secondary-light: #334155;
+  --color-secondary-dark: #cbd5e1;
+  --color-danger: #f87171;
+  --color-danger-light: #450a0a;
+  --color-danger-dark: #fca5a5;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* animasi loading */
+@layer utilities {
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scale-in {
+    0% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out forwards;
+  }
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out forwards;
+  }
+}
+
+/* Menghilangkan panah input number di Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Menghilangkan panah input number di Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
