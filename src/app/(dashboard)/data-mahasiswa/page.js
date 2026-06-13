@@ -292,14 +292,14 @@ export default function DataMahasiswaPage() {
         </div>
 
         {/* Pagination Component */}
-        <div className="flex justify-between items-center px-8 py-4 border-t border-border bg-bg/20">
-          <span className="text-xs text-muted">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 px-4 md:px-8 py-4 border-t border-border bg-bg/20">
+          <span className="text-xs text-muted text-center sm:text-left">
             Menampilkan {indexOfFirstItem + 1} -{" "}
             {Math.min(indexOfLastItem, students.length)} dari {students.length}{" "}
             mahasiswa
           </span>
 
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center flex-wrap justify-center sm:justify-end">
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
