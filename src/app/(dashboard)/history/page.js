@@ -221,108 +221,112 @@ export default function HistoryStudent() {
 
       <div className="max-w-5xl mx-auto bg-card-bg rounded-xl shadow-sm border border-border overflow-hidden transition-all duration-300">
         {filtered.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[1400px]">
-              <thead>
-                <tr className="text-[11px] uppercase tracking-widest font-bold border-b border-border bg-bg/30 ">
-                  <th className="px-6 py-5 w-16">No</th>
-                  <th className="px-6 py-5 w-32">NIM</th>
-                  <th className="px-6 py-5 w-48">Nama</th>
-                  <th className="px-6 py-5 w-40">Prodi</th>
-                  <th className="px-6 py-5 w-20">Semester</th>
-                  <th className="px-6 py-5 w-20">IPK</th>
-                  <th className="px-6 py-5 w-40">Pendapatan Orang tua</th>
-                  <th className="px-6 py-5 w-24">Motivasi</th>
-                  <th className="px-6 py-5 w-24">Literasi</th>
-                  <th className="px-6 py-5 w-32">Surat Rekomendasi</th>
-                  <th className="px-6 py-5 w-32">Aktif Organisasi</th>
-                  <th className="px-6 py-5 w-32">Kegiatan Relawan</th>
-                  <th className="px-6 py-5 w-32">Keaktifan Kampus</th>
-                  <th className="px-6 py-5 w-24">Absen</th>
-                  <th className="px-6 py-5 w-32">Status</th>
-                  <th className="px-6 py-5 w-32">Tanggal Dihapus</th>
-                  <th className="px-6 py-5 w-32">Tanggal kadaluarsa</th>
-                  <th className="px-6 py-5 w-32">Edit</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {paginatedData.map((s) => (
-                  <tr
-                    key={s.no}
-                    className="hover:bg-bg/50 transition-colors text-xs text-text"
-                  >
-                    <td className="px-6 py-4 w-16 text-muted">{s.no}</td>
-                    <td className="px-6 py-4 w-32 text-muted">{s.nim}</td>
-                    <td className="px-6 py-4 w-48 text-muted">{s.nama}</td>
-                    <td className="px-6 py-4 w-40 text-muted">{s.prodi}</td>
-                    <td className="px-6 py-4 w-20 text-muted">{s.semester}</td>
-                    <td className="px-6 py-4 w-20 text-muted">
-                      {s.ipk.toFixed(2)}
-                    </td>
-                    <td className="px-6 py-4 w-40 text-muted">
-                      {s.pendapatanOT.toLocaleString("id-ID")}
-                    </td>
-                    <td className="px-6 py-4 w-24 text-muted text-center">
-                      {s.skorMotivasi}
-                    </td>
-                    <td className="px-6 py-4 w-24 text-muted text-center">
-                      {s.skorLiterasi}
-                    </td>
-                    <td className="px-6 py-4 w-32 text-muted text-center">
-                      {s.suratRek}
-                    </td>
-                    <td className="px-6 py-4 w-32 text-muted text-center">
-                      {s.aktifOrg}
-                    </td>
-                    <td className="px-6 py-4 w-32 text-muted text-center">
-                      {s.jmlRelawan}
-                    </td>
-                    <td className="px-6 py-4 w-32 text-muted text-center">
-                      {s.skorKeaktifan}
-                    </td>
-                    <td className="px-6 py-4 w-24 text-muted text-center">
-                      {s.absen}
-                    </td>
-                    <td className="px-6 py-4 w-32">
-                      <span
-                        className={`px-5 py-1.5 rounded-lg font-black uppercase text-[10px] tracking-widest inline-block text-center ${
-                          s.status === "LAYAK"
-                            ? "bg-accent-green-light text-accent-green border border-accent-green/20"
-                            : "bg-danger-light text-danger border border-danger/20"
-                        }`}
-                      >
-                        {s.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 w-32 text-muted text-center">
-                      {s.tanggaldihapus}
-                    </td>
-                    <td className="px-6 py-4 w-32 text-muted text-center">
-                      {s.tanggalkadaluarsa}
-                    </td>
-                    <td className="px-6 py-4 flex gap-2">
-                      {/* Tombol Pulihkan */}
-                      <button
-                        onClick={() => openModal(s, "restore")}
-                        className="text-secondary hover:text-primary p-2 transition-colors"
-                        aria-label="Pulihkan data"
-                      >
-                        <LuRotateCcw className="w-5 h-5" />
-                      </button>
-
-                      {/* Tombol Hapus */}
-                      <button
-                        onClick={() => openModal(s, "delete")}
-                        className="text-danger hover:text-danger-dark p-2 transition-colors"
-                        aria-label="Hapus data"
-                      >
-                        <LuTrash2 className="w-5 h-5" />
-                      </button>
-                    </td>
+          <div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse min-w-[1400px]">
+                <thead>
+                  <tr className="text-[11px] uppercase tracking-widest font-bold border-b border-border bg-bg/30 ">
+                    <th className="px-6 py-5 w-16">No</th>
+                    <th className="px-6 py-5 w-32">NIM</th>
+                    <th className="px-6 py-5 w-48">Nama</th>
+                    <th className="px-6 py-5 w-40">Prodi</th>
+                    <th className="px-6 py-5 w-20">Semester</th>
+                    <th className="px-6 py-5 w-20">IPK</th>
+                    <th className="px-6 py-5 w-40">Pendapatan Orang tua</th>
+                    <th className="px-6 py-5 w-24">Motivasi</th>
+                    <th className="px-6 py-5 w-24">Literasi</th>
+                    <th className="px-6 py-5 w-32">Surat Rekomendasi</th>
+                    <th className="px-6 py-5 w-32">Aktif Organisasi</th>
+                    <th className="px-6 py-5 w-32">Kegiatan Relawan</th>
+                    <th className="px-6 py-5 w-32">Keaktifan Kampus</th>
+                    <th className="px-6 py-5 w-24">Absen</th>
+                    <th className="px-6 py-5 w-32">Status</th>
+                    <th className="px-6 py-5 w-32">Tanggal Dihapus</th>
+                    <th className="px-6 py-5 w-32">Tanggal kadaluarsa</th>
+                    <th className="px-6 py-5 w-32">Edit</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {paginatedData.map((s) => (
+                    <tr
+                      key={s.no}
+                      className="hover:bg-bg/50 transition-colors text-xs text-text"
+                    >
+                      <td className="px-6 py-4 w-16 text-muted">{s.no}</td>
+                      <td className="px-6 py-4 w-32 text-muted">{s.nim}</td>
+                      <td className="px-6 py-4 w-48 text-muted">{s.nama}</td>
+                      <td className="px-6 py-4 w-40 text-muted">{s.prodi}</td>
+                      <td className="px-6 py-4 w-20 text-muted">
+                        {s.semester}
+                      </td>
+                      <td className="px-6 py-4 w-20 text-muted">
+                        {s.ipk.toFixed(2)}
+                      </td>
+                      <td className="px-6 py-4 w-40 text-muted">
+                        {s.pendapatanOT.toLocaleString("id-ID")}
+                      </td>
+                      <td className="px-6 py-4 w-24 text-muted text-center">
+                        {s.skorMotivasi}
+                      </td>
+                      <td className="px-6 py-4 w-24 text-muted text-center">
+                        {s.skorLiterasi}
+                      </td>
+                      <td className="px-6 py-4 w-32 text-muted text-center">
+                        {s.suratRek}
+                      </td>
+                      <td className="px-6 py-4 w-32 text-muted text-center">
+                        {s.aktifOrg}
+                      </td>
+                      <td className="px-6 py-4 w-32 text-muted text-center">
+                        {s.jmlRelawan}
+                      </td>
+                      <td className="px-6 py-4 w-32 text-muted text-center">
+                        {s.skorKeaktifan}
+                      </td>
+                      <td className="px-6 py-4 w-24 text-muted text-center">
+                        {s.absen}
+                      </td>
+                      <td className="px-6 py-4 w-32">
+                        <span
+                          className={`px-5 py-1.5 rounded-lg font-black uppercase text-[10px] tracking-widest inline-block text-center ${
+                            s.status === "LAYAK"
+                              ? "bg-accent-green-light text-accent-green border border-accent-green/20"
+                              : "bg-danger-light text-danger border border-danger/20"
+                          }`}
+                        >
+                          {s.status}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 w-32 text-muted text-center">
+                        {s.tanggaldihapus}
+                      </td>
+                      <td className="px-6 py-4 w-32 text-muted text-center">
+                        {s.tanggalkadaluarsa}
+                      </td>
+                      <td className="px-6 py-4 flex gap-2">
+                        {/* Tombol Pulihkan */}
+                        <button
+                          onClick={() => openModal(s, "restore")}
+                          className="text-secondary hover:text-primary p-2 transition-colors"
+                          aria-label="Pulihkan data"
+                        >
+                          <LuRotateCcw className="w-5 h-5" />
+                        </button>
+
+                        {/* Tombol Hapus */}
+                        <button
+                          onClick={() => openModal(s, "delete")}
+                          className="text-danger hover:text-danger-dark p-2 transition-colors"
+                          aria-label="Hapus data"
+                        >
+                          <LuTrash2 className="w-5 h-5" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
             {/* Pagination Component */}
             <div className="flex justify-between items-center px-8 py-4 border-t border-border bg-bg/20">
               <span className="text-xs text-muted">
